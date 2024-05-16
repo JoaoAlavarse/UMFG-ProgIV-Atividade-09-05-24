@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo</title>
+</head>
+
+<body>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <h1>Bem-Vindo ao Sistema: <span id="user-email"></span></h1>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="./img/Foto Perfil.jpg" />
+    </div>
+
+    <script>
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] === variable) {
+                    return decodeURIComponent(pair[1]);
+                }
+            }
+            return null;
+        }
+
+        var userEmail = getQueryVariable('email');
+        if (userEmail) {
+            document.getElementById('user-email').textContent = userEmail;
+        }
+    </script>
+</body>
+
+</html>
